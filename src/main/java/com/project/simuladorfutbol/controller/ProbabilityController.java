@@ -18,10 +18,10 @@ public class ProbabilityController {
 
     /**
      * Endpoint de prueba
-     * Ejemplo de uso: /calculate-vector-index?scoreA=85&scoreB=72
+     * Ejemplo de uso: /calculateVectorIndex?scoreA=85&scoreB=72
      * Devuelve en JSON: { "vectorIndex": 6 }
      */
-    @GetMapping("/calculate-vector-index")
+    @GetMapping("/calculateVectorIndex")
     public Map<String, Integer> getVectorIndex(@RequestParam int scoreA, @RequestParam int scoreB) {
         int vector = probabilityService.getVectorIndex(scoreA, scoreB);
         return Map.of("vectorIndex", vector);
