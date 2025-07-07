@@ -18,7 +18,7 @@ public class ProbabilityController {
 
     /**
      * Endpoint de prueba
-     * Ejemplo de uso: /calculateVectorIndex?scoreA=85&scoreB=72
+     * Ejemplo de uso: /calculateVectorIndex?scoreA=85&scoreB=76
      * Devuelve en JSON: { "vectorIndex": 6 }
      */
     @GetMapping("/calculateVectorIndex")
