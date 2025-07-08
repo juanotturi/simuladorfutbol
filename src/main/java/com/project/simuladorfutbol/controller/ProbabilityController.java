@@ -1,5 +1,6 @@
 package com.project.simuladorfutbol.controller;
 
+import com.project.simuladorfutbol.dto.ProbabilityVectorDTO;
 import com.project.simuladorfutbol.service.ProbabilityService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +18,19 @@ public class ProbabilityController {
     }
 
     /**
-     * Endpoint de prueba
+     * Ejemplo de uso: /getProbabilityVector?scoreA=84&scoreB=63
+     * Devuelve en JSON: {
+     *   "probabilityTeamA": 82,
+     *   "probabilityDraw": 11,
+     *   "probabilityTeamB": 7
+     * }
+     */
+    @GetMapping("/getProbabilityVector")
+    public ProbabilityVectorDTO getProbabilityVector(@RequestParam int scoreA, @RequestParam int scoreB) {
+        return probabilityService.getProbabilityVector(scoreA, scoreB);
+    }
+
+    /**
      * Ejemplo de uso: /calculateVectorIndex?scoreA=85&scoreB=76
      * Devuelve en JSON: { "vectorIndex": 6 }
      */

@@ -1,15 +1,23 @@
 package com.project.simuladorfutbol.service;
 
+import com.project.simuladorfutbol.dto.ProbabilityVectorDTO;
 import com.project.simuladorfutbol.model.ProbabilityMatrix;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProbabilityService {
 
-    private final ProbabilityMatrix probabilityMatrix;
+    private final ProbabilityMatrix matrix;
+    private final ProbabilityVectorMapper mapper;
 
-    public ProbabilityService(ProbabilityMatrix probabilityMatrix) {
-        this.probabilityMatrix = probabilityMatrix;
+    public ProbabilityService(ProbabilityMatrix matrix, ProbabilityVectorMapper mapper) {
+        this.matrix = matrix;
+        this.mapper = mapper;
+    }
+
+    public ProbabilityVectorDTO getProbabilityVector(int scoreA, int scoreB) {
+        int index = matrix.getVectorValue(scoreA, scoreB);
+        return mapper.getVector(index);
     }
 
     /**
@@ -19,6 +27,6 @@ public class ProbabilityService {
      * @return índice del vector (-17 a +17)
      */
     public int getVectorIndex(int scoreA, int scoreB) {
-        return probabilityMatrix.getVectorValue(scoreA, scoreB);
+        return matrix.getVectorValue(scoreA, scoreB);
     }
 }
