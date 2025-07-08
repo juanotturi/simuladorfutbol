@@ -4,6 +4,8 @@ import com.project.simuladorfutbol.dto.ExactResultDTO;
 import com.project.simuladorfutbol.dto.ProbabilityVectorDTO;
 import com.project.simuladorfutbol.model.ExactResultMatrix;
 import com.project.simuladorfutbol.model.ProbabilityMatrix;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -16,6 +18,7 @@ public class ProbabilityService {
     private final ExactResultMatrix exactResultMatrix;
     private final ExactResultMapper exactResultCodeMapper;
     private final Random random = new Random();
+    private static final Logger log = LoggerFactory.getLogger(ProbabilityService.class);
 
     public ProbabilityService(ProbabilityMatrix matrix, ProbabilityVectorMapper mapper, ExactResultMatrix exactResultMatrix, ExactResultMapper exactResultCodeMapper) {
         this.matrix = matrix;
@@ -26,14 +29,15 @@ public class ProbabilityService {
 
     public ExactResultDTO simulateMatch(int scoreA, int scoreB) {
         int vectorIndex = getVectorIndex(scoreA, scoreB);
-
         if (Math.abs(scoreA - scoreB) == 1) {
             vectorIndex = 0;
         }
+        log.info("vectorIndex: " + vectorIndex);
 
         int rand = random.nextInt(100) + 1;
         int resultCode = exactResultMatrix.getResultCode(vectorIndex, rand);
-
+        log.info("rand: " + rand);
+        log.info("resultCode: " + resultCode);
         return exactResultCodeMapper.getResult(resultCode);
     }
 
