@@ -1,20 +1,16 @@
-package com.project.simuladorfutbol.factory;
+package com.project.simuladorfutbol.mapper;
 
 import com.project.simuladorfutbol.model.ProbabilityMatrix;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProbabilityMatrixFactory {
+public class ProbabilityMatrixMapper {
 
     public static ProbabilityMatrix createMatrix() {
-        // Mapa externo: equipo A (fila)
-        // Mapa interno: equipo B (columna)
+
         Map<Integer, Map<Integer, Integer>> matrix = new HashMap<>();
 
-        // ------------------------------------------------------
-        // Fila: 100-84 (Bucket del equipo A)
-        // Columnas: Buckets del equipo B
         Map<Integer, Integer> rowA100 = new HashMap<>();
         rowA100.put(100, 0);
         rowA100.put(83, 2);
@@ -36,8 +32,6 @@ public class ProbabilityMatrixFactory {
         rowA100.put(37, 17);
         matrix.put(100, rowA100);
 
-        // ------------------------------------------------------
-        // Fila: 83-79 (Bucket del equipo A)
         Map<Integer, Integer> rowA83 = new HashMap<>();
         rowA83.put(100, -2);
         rowA83.put(83, 0);
@@ -59,8 +53,6 @@ public class ProbabilityMatrixFactory {
         rowA83.put(37, 17);
         matrix.put(83, rowA83);
 
-        // ------------------------------------------------------
-        // Fila: 78-77 (Bucket del equipo A)
         Map<Integer, Integer> rowA78 = new HashMap<>();
         rowA78.put(100, -4);
         rowA78.put(83, -2);
@@ -82,8 +74,6 @@ public class ProbabilityMatrixFactory {
         rowA78.put(37, 17);
         matrix.put(78, rowA78);
 
-        // ------------------------------------------------------
-        // Fila: 76-75 (Bucket del equipo A)
         Map<Integer, Integer> rowA76 = new HashMap<>();
         rowA76.put(100, -6);
         rowA76.put(83, -4);
@@ -105,8 +95,6 @@ public class ProbabilityMatrixFactory {
         rowA76.put(37, 17);
         matrix.put(76, rowA76);
 
-        // ------------------------------------------------------
-        // Fila: 74-73 (Bucket del equipo A)
         Map<Integer, Integer> rowA74 = new HashMap<>();
         rowA74.put(100, -8);
         rowA74.put(83, -6);
@@ -128,8 +116,6 @@ public class ProbabilityMatrixFactory {
         rowA74.put(37, 17);
         matrix.put(74, rowA74);
 
-        // ------------------------------------------------------
-        // Fila: 72-71 (Bucket del equipo A)
         Map<Integer, Integer> rowA72 = new HashMap<>();
         rowA72.put(100, -9);
         rowA72.put(83, -8);
@@ -151,8 +137,6 @@ public class ProbabilityMatrixFactory {
         rowA72.put(37, 17);
         matrix.put(72, rowA72);
 
-        // ------------------------------------------------------
-        // Fila: 70-68 (Bucket del equipo A)
         Map<Integer, Integer> rowA70 = new HashMap<>();
         rowA70.put(100, -11);
         rowA70.put(83, -10);
@@ -174,8 +158,6 @@ public class ProbabilityMatrixFactory {
         rowA70.put(37, 17);
         matrix.put(70, rowA70);
 
-        // ------------------------------------------------------
-        // Fila: 67-65 (Bucket del equipo A)
         Map<Integer, Integer> rowA67 = new HashMap<>();
         rowA67.put(100, -12);
         rowA67.put(83, -11);
@@ -197,8 +179,6 @@ public class ProbabilityMatrixFactory {
         rowA67.put(37, 17);
         matrix.put(67, rowA67);
 
-        // ------------------------------------------------------
-        // Fila: 67-65 (Bucket del equipo A)
         Map<Integer, Integer> rowA64 = new HashMap<>();
         rowA64.put(100, -13);
         rowA64.put(83, -12);
@@ -220,8 +200,6 @@ public class ProbabilityMatrixFactory {
         rowA64.put(37, 16);
         matrix.put(64, rowA64);
 
-        // ------------------------------------------------------
-        // Fila: 61-59 (Bucket del equipo A)
         Map<Integer, Integer> rowA61 = new HashMap<>();
         rowA61.put(100, -14);
         rowA61.put(83, -13);
@@ -243,8 +221,6 @@ public class ProbabilityMatrixFactory {
         rowA61.put(37, 16);
         matrix.put(61, rowA61);
 
-        // ------------------------------------------------------
-        // Fila: 58-56 (Bucket del equipo A)
         Map<Integer, Integer> rowA58 = new HashMap<>();
         rowA58.put(100, -15);
         rowA58.put(83, -15);
@@ -266,8 +242,6 @@ public class ProbabilityMatrixFactory {
         rowA58.put(37, 16);
         matrix.put(58, rowA58);
 
-        // ------------------------------------------------------
-        // Fila: 55-53 (Bucket del equipo A)
         Map<Integer, Integer> rowA55 = new HashMap<>();
         rowA55.put(100, -16);
         rowA55.put(83, -16);
@@ -289,8 +263,6 @@ public class ProbabilityMatrixFactory {
         rowA55.put(37, 15);
         matrix.put(55, rowA55);
 
-        // ------------------------------------------------------
-        // Fila: 52-50 (Bucket del equipo A)
         Map<Integer, Integer> rowA52 = new HashMap<>();
         rowA52.put(100, -17);
         rowA52.put(83, -17);
@@ -312,8 +284,6 @@ public class ProbabilityMatrixFactory {
         rowA52.put(37, 15);
         matrix.put(52, rowA52);
 
-        // ------------------------------------------------------
-        // Fila: 49-47 (Bucket del equipo A)
         Map<Integer, Integer> rowA49 = new HashMap<>();
         rowA49.put(100, -17);
         rowA49.put(83, -17);
@@ -335,8 +305,6 @@ public class ProbabilityMatrixFactory {
         rowA49.put(37, 14);
         matrix.put(49, rowA49);
 
-        // ------------------------------------------------------
-        // Fila: 46-44 (Bucket del equipo A)
         Map<Integer, Integer> rowA46 = new HashMap<>();
         rowA46.put(100, -17);
         rowA46.put(83, -17);
@@ -358,8 +326,6 @@ public class ProbabilityMatrixFactory {
         rowA46.put(37, 12);
         matrix.put(46, rowA46);
 
-        // ------------------------------------------------------
-        // Fila: 43-41 (Bucket del equipo A)
         Map<Integer, Integer> rowA43 = new HashMap<>();
         rowA43.put(100, -17);
         rowA43.put(83, -17);
@@ -381,8 +347,6 @@ public class ProbabilityMatrixFactory {
         rowA43.put(37, 8);
         matrix.put(43, rowA43);
 
-        // ------------------------------------------------------
-        // Fila: 40-38 (Bucket del equipo A)
         Map<Integer, Integer> rowA40 = new HashMap<>();
         rowA40.put(100, -17);
         rowA40.put(83, -17);
@@ -404,8 +368,6 @@ public class ProbabilityMatrixFactory {
         rowA40.put(37, 4);
         matrix.put(40, rowA40);
 
-        // ------------------------------------------------------
-        // Fila: 37-0 (Bucket del equipo A)
         Map<Integer, Integer> rowA37 = new HashMap<>();
         rowA37.put(100, -17);
         rowA37.put(83, -17);

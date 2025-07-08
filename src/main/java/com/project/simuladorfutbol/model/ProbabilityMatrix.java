@@ -4,12 +4,6 @@ import java.util.Map;
 
 public class ProbabilityMatrix {
 
-    /**
-     * Representa la tabla de probabilidades.
-     * Clave externa: bucket del equipo A (fila)
-     * Clave interna: bucket del equipo B (columna)
-     * Valor: índice del vector (-17 a +17)
-     */
     private final Map<Integer, Map<Integer, Integer>> matrix;
 
     public ProbabilityMatrix(Map<Integer, Map<Integer, Integer>> matrix) {
@@ -24,7 +18,6 @@ public class ProbabilityMatrix {
      * @return índice del vector (-17 a +17)
      */
     public int getVectorValue(int scoreA, int scoreB) {
-        // Si la diferencia es exactamente 1, devuelve 0 (empate suave)
         if (Math.abs(scoreA - scoreB) == 1) {
             return 0;
         }
@@ -32,21 +25,13 @@ public class ProbabilityMatrix {
         int bucketA = bucketize(scoreA);
         int bucketB = bucketize(scoreB);
 
-        // Respetar filas = A, columnas = B
         Map<Integer, Integer> row = matrix.get(bucketA);
         if (row == null) {
-            return 0;  // Default si no existe fila
+            return 0;
         }
         return row.getOrDefault(bucketB, 0);
     }
 
-
-    /**
-     * Clasifica el score en su bucket correspondiente.
-     *
-     * @param score Puntaje bruto (0-100)
-     * @return bucket (ejemplo 100, 83, 78, etc.)
-     */
     private int bucketize(int score) {
         if (score >= 84) return 100;
         if (score >= 79) return 83;

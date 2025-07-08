@@ -1,4 +1,4 @@
-package com.project.simuladorfutbol.service;
+package com.project.simuladorfutbol.mapper;
 
 import com.project.simuladorfutbol.dto.ExactResultDTO;
 import org.springframework.stereotype.Component;
@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class ExactResultMapper {
+public class ResultMatrixMapper {
 
     private final Map<Integer, ExactResultDTO> codeToResult;
 
-    public ExactResultMapper() {
+    public ResultMatrixMapper() {
         codeToResult = new HashMap<>();
         initializeMap();
     }

@@ -1,6 +1,6 @@
 package com.project.simuladorfutbol.config;
 
-import com.project.simuladorfutbol.factory.ProbabilityMatrixFactory;
+import com.project.simuladorfutbol.mapper.ProbabilityMatrixMapper;
 import com.project.simuladorfutbol.model.ProbabilityMatrix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +14,6 @@ public class AppConfig {
      */
     @Bean
     public ProbabilityMatrix probabilityMatrix() {
-        return ProbabilityMatrixFactory.createMatrix();
+        return ProbabilityMatrixMapper.createMatrix();
     }
 }
