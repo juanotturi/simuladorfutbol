@@ -24,6 +24,11 @@ public class ProbabilityMatrix {
      * @return índice del vector (-17 a +17)
      */
     public int getVectorValue(int scoreA, int scoreB) {
+        // Si la diferencia es exactamente 1, devuelve 0 (empate suave)
+        if (Math.abs(scoreA - scoreB) == 1) {
+            return 0;
+        }
+
         int bucketA = bucketize(scoreA);
         int bucketB = bucketize(scoreB);
 
@@ -34,6 +39,7 @@ public class ProbabilityMatrix {
         }
         return row.getOrDefault(bucketB, 0);
     }
+
 
     /**
      * Clasifica el score en su bucket correspondiente.
@@ -58,7 +64,7 @@ public class ProbabilityMatrix {
         if (score >= 47) return 49;
         if (score >= 44) return 46;
         if (score >= 41) return 43;
-        if (score >= 39) return 40;
-        return 38;
+        if (score >= 38) return 40;
+        return 37;
     }
 }
