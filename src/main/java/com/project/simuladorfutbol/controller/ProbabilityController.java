@@ -1,5 +1,6 @@
 package com.project.simuladorfutbol.controller;
 
+import com.project.simuladorfutbol.dto.ExactResultDTO;
 import com.project.simuladorfutbol.dto.ProbabilityVectorDTO;
 import com.project.simuladorfutbol.service.ProbabilityService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,18 @@ public class ProbabilityController {
 
     public ProbabilityController(ProbabilityService probabilityService) {
         this.probabilityService = probabilityService;
+    }
+
+    /**
+     * Ejemplo de uso: /simulateMatch?scoreA=84&scoreB=63
+     * Devuelve en JSON: {
+     *   "goalsTeamA": 2,
+     *   "goalsTeamB": 1
+     * }
+     */
+    @GetMapping("/simulateMatch")
+    public ExactResultDTO simulateMatch(@RequestParam int scoreA, @RequestParam int scoreB) {
+        return probabilityService.simulateMatch(scoreA, scoreB);
     }
 
     /**
