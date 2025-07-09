@@ -17,7 +17,8 @@ public class MatchController {
 
     /**
      * Ejemplo de uso: /playMatch?scoreA=84&scoreB=63
-     * Devuelve en JSON: {
+     * Devuelve el JSON:
+     * {
      *   "goalsTeamA": 2,
      *   "goalsTeamB": 1
      * }
