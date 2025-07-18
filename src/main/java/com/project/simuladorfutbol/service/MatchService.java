@@ -30,12 +30,8 @@ public class MatchService {
         if (Math.abs(scoreA - scoreB) == 1) {
             vectorIndex = 0;
         }
-        log.info("vectorIndex: " + vectorIndex);
-
         int rand = random.nextInt(100) + 1;
         int resultCode = exactResultMatrix.getResultCode(vectorIndex, rand);
-        log.info("rand: " + rand);
-        log.info("resultCode: " + resultCode);
         return exactResultCodeMapper.getResult(resultCode);
     }
 
