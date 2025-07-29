@@ -1,0 +1,14 @@
+[
+  { "id": 10000, "idTeam": 1000, "name": "Nahuel Molina", "goalProbability": 5 },
+  { "id": 10001, "idTeam": 1000, "name": "Nicolás Otamendi", "goalProbability": 5 },
+  { "id": 10002, "idTeam": 1000, "name": "Cristian Romero", "goalProbability": 5 },
+  { "id": 10003, "idTeam": 1000, "name": "Nicolás Tagliafico", "goalProbability": 5 },
+  { "id": 10004, "idTeam": 1000, "name": "Alexis Mac Allister", "goalProbability": 5 },
+  { "id": 10005, "idTeam": 1000, "name": "Enzo Fernández", "goalProbability": 5 },
+  { "id": 10006, "idTeam": 1000, "name": "Rodrigo De Paul", "goalProbability": 5 },
+  { "id": 10007, "idTeam": 1000, "name": "Leandro Paredes", "goalProbability": 5 },
+  { "id": 10008, "idTeam": 1000, "name": "Lionel Messi", "goalProbability": 15 },
+  { "id": 10009, "idTeam": 1000, "name": "Lautaro Martínez", "goalProbability": 20 },
+  { "id": 10010, "idTeam": 1000, "name": "Julián Álvarez", "goalProbability": 20 },
+  { "id": 10011, "idTeam": 1000, "name": "Ángel Di María", "goalProbability": 5 }
+]
