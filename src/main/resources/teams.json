@@ -199,7 +199,7 @@
   { "id": 1197, "name": "Tonga", "code": "TON", "score": 36, "confederation": "OFC", "league": null, "image": "http://localhost:8080/flags/TGA.png" },
   { "id": 1198, "name": "Gibraltar", "code": "GIB", "score": 38, "confederation": "UEFA", "league": null, "image": "http://localhost:8080/flags/GIB.png" },
   { "id": 1199, "name": "Somalia", "code": "SOM", "score": 36, "confederation": "CAF", "league": null, "image": "http://localhost:8080/flags/SOM.png" },
-  { "id": 1200, "name": "Pakistán", "code": "PAK", "score": 35, "confederation": "CAF", "league": null, "image": "http://localhost:8080/flags/PAK.png" },
+  { "id": 1200, "name": "Pakistán", "code": "PAK", "score": 35, "confederation": "AFC", "league": null, "image": "http://localhost:8080/flags/PAK.png" },
   { "id": 1201, "name": "Guam", "code": "GUM", "score": 35, "confederation": "AFC", "league": null, "image": "http://localhost:8080/flags/GUM.png" },
   { "id": 1202, "name": "Seychelles", "code": "SEY", "score": 35, "confederation": "CAF", "league": null, "image": "http://localhost:8080/flags/SEY.png" },
   { "id": 1203, "name": "Liechtenstein", "code": "LIE", "score": 37, "confederation": "UEFA", "league": null, "image": "http://localhost:8080/flags/LIE.png" },
