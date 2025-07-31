@@ -12,4 +12,5 @@ public class PlayerDTO {
     private long idTeam;
     private String name;
     private int goalProbability;
+    private String position;
 }
