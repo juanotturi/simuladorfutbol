@@ -4,10 +4,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.simuladorfutbol.dto.PlayerDTO;
 import jakarta.annotation.PostConstruct;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.InputStream;
+import java.io.File;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -19,10 +20,17 @@ public class PlayerService {
     private List<PlayerDTO> allPlayers = List.of();
     private final Map<Long, List<PlayerDTO>> byTeam = new ConcurrentHashMap<>();
 
+    private final Path playerJsonPath;
+
+    public PlayerService(@Value("${data.base-path}") String basePath) {
+        this.playerJsonPath = Path.of(basePath, "players.json");
+    }
+
     @PostConstruct
     public void load() {
-        try (InputStream is = new ClassPathResource("players.json").getInputStream()) {
-            allPlayers = mapper.readValue(is, new TypeReference<List<PlayerDTO>>() {});
+        try {
+            File file = playerJsonPath.toFile();
+            allPlayers = mapper.readValue(file, new TypeReference<>() {});
             allPlayers.forEach(p -> {
                 if (p.getGoalProbability() < 0) p.setGoalProbability(0);
             });

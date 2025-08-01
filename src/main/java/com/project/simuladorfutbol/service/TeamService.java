@@ -4,9 +4,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.simuladorfutbol.dto.TeamDTO;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.InputStream;
+import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,24 +16,36 @@ import java.util.List;
 public class TeamService {
 
     private final List<TeamDTO> teams = new ArrayList<>();
+    private final ObjectMapper mapper = new ObjectMapper();
+    private final Path teamJsonPath;
+
+    public TeamService(@Value("${data.base-path}") String basePath) {
+        this.teamJsonPath = Path.of(basePath, "teams.json");
+    }
 
     @PostConstruct
     public void loadTeams() {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            InputStream is = getClass().getClassLoader().getResourceAsStream("teams.json");
-            if (is != null) {
-                List<TeamDTO> loaded = mapper.readValue(is, new TypeReference<List<TeamDTO>>() {});
-                teams.addAll(loaded);
-            } else {
-                throw new IllegalStateException("No se encontró el archivo teams.json");
+            File file = teamJsonPath.toFile();
+            if (!file.exists()) {
+                return;
             }
+
+            List<TeamDTO> loaded = mapper.readValue(file, new TypeReference<>() {});
+            System.out.println("📊 Equipos cargados: " + loaded.size());
+
+            teams.clear();
+            teams.addAll(loaded);
         } catch (Exception e) {
-            throw new RuntimeException("Error cargando teams.json", e);
+            System.err.println("❌ Error cargando teams.json: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
     public List<TeamDTO> getAllTeams() {
+        if (teams.isEmpty()) {
+            loadTeams();
+        }
         return teams;
     }
 
@@ -41,5 +55,4 @@ public class TeamService {
                 .findFirst()
                 .orElse(null);
     }
-
 }
